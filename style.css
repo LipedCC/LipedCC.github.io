@@ -51,7 +51,7 @@ body {
 
 .pfp-container:hover {
   transform: scale(1.15) rotate(3deg);
-  box-shadow: 0 0 60px red, inset 0 0 20px red;
+  box-shadow: 0 0 70px red, inset 0 0 25px red;
 }
 
 .profile-pic {
@@ -160,20 +160,20 @@ body {
 .checkout-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.88);
+  background: rgba(0,0,0,0.9);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 10;
 }
 
 .checkout-box {
   position: relative;
-  width: 340px;
+  width: 360px;
   background: #120000;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 50px red;
+  box-shadow: 0 0 60px red;
   text-align: center;
 }
 
@@ -189,21 +189,27 @@ body {
 .checkout-info {
   font-size: 0.9rem;
   color: #ddd;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
-.checkout-box input {
+.checkout-box input,
+.checkout-box textarea {
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin: 8px 0;
   border-radius: 10px;
   border: none;
   background: #000;
   color: white;
+  resize: none;
+}
+
+.checkout-box textarea {
+  height: 80px;
 }
 
 .checkout-box button {
-  margin-top: 10px;
+  margin-top: 12px;
   padding: 10px 25px;
   border-radius: 12px;
   border: none;
