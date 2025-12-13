@@ -124,11 +124,10 @@ body {
   overflow-y: auto;
 }
 
-/* Services section with long vertical cards */
+/* Services section vertical stack */
 .services {
   display: flex;
   flex-direction: column;
-  gap: 45px;
   align-items: center;
 }
 
@@ -140,37 +139,38 @@ body {
 }
 
 .service-card {
+  width: 90%;
+  max-width: 1200px;
   background: rgba(255, 0, 0, 0.25);
   backdrop-filter: blur(12px);
   border-radius: 25px;
-  padding: 45px 30px;
-  width: 85%;
-  max-width: 700px;
+  padding: 40px 25px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
 }
 
 .service-card:hover {
-  transform: scale(1.07);
+  transform: scale(1.05);
   box-shadow: 0 0 40px #ff4c4c;
 }
 
 .service-card h3 {
   margin-bottom: 15px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .service-card p {
   margin-bottom: 15px;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 .price {
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
-button {
+.buy-btn {
   padding: 12px 25px;
   background: #ff0000;
   border: none;
@@ -180,7 +180,7 @@ button {
   transition: background 0.3s ease;
 }
 
-button:hover {
+.buy-btn:hover {
   background: #ff4c4c;
 }
 
