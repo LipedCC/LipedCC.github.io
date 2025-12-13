@@ -11,10 +11,17 @@
 <canvas id="particles"></canvas>
 <div class="cursor"></div>
 
+<!-- CHECKOUT MODAL -->
 <div class="checkout-overlay" id="checkout">
   <div class="checkout-box">
-    <h2 class="gradient-text">Before Checkout</h2>
+    <span class="close-btn" onclick="closeCheckout()">✕</span>
+
+    <h2 class="gradient-text">Checkout</h2>
+    <p class="checkout-info" id="checkoutInfo"></p>
+
     <input id="discordInput" placeholder="Your Discord username">
+    <input id="extraInfo" placeholder="Extra notes (optional)">
+
     <button onclick="checkout()">Continue to PayPal</button>
   </div>
 </div>
@@ -27,10 +34,18 @@
   <h1 class="sidebar-title">Just a Random Dev</h1>
   <p class="sidebar-sub">Python • JS • C++ • C#</p>
 
+  <div class="sidebar-info">
+    <p>💻 Freelance Developer</p>
+    <p>⚡ Fast delivery</p>
+    <p>🛠 Custom solutions</p>
+    <p>🌍 Online / Remote</p>
+  </div>
+
   <section>
     <h2 class="sidebar-heading">About</h2>
     <p class="sidebar-text">
-      Casual developer working with bots, automation, scripts and custom builds.
+      I build Discord bots, automation scripts, game logic,
+      and custom tools. Clean code, fast delivery, no nonsense.
     </p>
   </section>
 
@@ -44,28 +59,32 @@
   <section class="services">
     <h2 class="gradient-text">Services</h2>
 
-    <div class="service-card" onclick="openCheckout('Discord Bot','12.99')">
+    <div class="service-card">
       <h3 class="gradient-text">Discord Bot</h3>
-      <p>JavaScript / Python / C++</p>
+      <p>Custom bot tailored to your server</p>
       <p class="price gradient-text">€12.99</p>
+      <button class="buy-btn" onclick="openCheckout('Discord Bot','12.99','Custom Discord bot with commands & automation')">Buy Now</button>
     </div>
 
-    <div class="service-card" onclick="openCheckout('Game Script','15')">
+    <div class="service-card">
       <h3 class="gradient-text">Game Script</h3>
-      <p>Automation / Logic</p>
+      <p>Automation, logic, and exploits</p>
       <p class="price gradient-text">€15</p>
+      <button class="buy-btn" onclick="openCheckout('Game Script','15','Game automation or scripting work')">Buy Now</button>
     </div>
 
-    <div class="service-card" onclick="openCheckout('Full Time Hire','70')">
+    <div class="service-card">
       <h3 class="gradient-text">Hire Me (Full Time)</h3>
-      <p>Dedicated dev work</p>
+      <p>Dedicated development work</p>
       <p class="price gradient-text">€70</p>
+      <button class="buy-btn" onclick="openCheckout('Full Time Hire','70','Full-time development services')">Hire</button>
     </div>
 
-    <div class="service-card" onclick="openCheckout('Part Time Hire','40')">
+    <div class="service-card">
       <h3 class="gradient-text">Hire Me (Part Time)</h3>
       <p>Flexible dev work</p>
       <p class="price gradient-text">€40</p>
+      <button class="buy-btn" onclick="openCheckout('Part Time Hire','40','Part-time development services')">Hire</button>
     </div>
 
     <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
