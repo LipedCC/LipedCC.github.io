@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .profile-pic {
@@ -45,16 +46,32 @@ body {
   margin-bottom: 20px;
 }
 
-.about h2 {
+.about h2, .contact h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
 
-.about p {
+.about p, .contact-card p {
   font-size: 0.9rem;
   text-align: center;
   line-height: 1.4;
+}
+
+/* Contact card */
+.contact-card {
+  background: linear-gradient(135deg, rgba(255,0,0,0.3), rgba(255,76,76,0.2));
+  backdrop-filter: blur(15px);
+  padding: 20px 25px;
+  border-radius: 15px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px #ff0000;
 }
 
 /* Main content */
@@ -121,40 +138,6 @@ button {
 
 button:hover {
   background: #ff4c4c;
-}
-
-/* Contact Section */
-.contact {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact h2 {
-  font-size: 2rem;
-  color: #ff4c4c;
-  margin-bottom: 20px;
-}
-
-.contact-card {
-  background: linear-gradient(135deg, rgba(255,0,0,0.3), rgba(255,76,76,0.2));
-  backdrop-filter: blur(15px);
-  padding: 30px 40px;
-  border-radius: 20px;
-  text-align: center;
-  max-width: 400px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px #ff0000;
-}
-
-.contact-card p {
-  margin: 10px 0;
-  font-size: 1rem;
 }
 
 /* Cursor */
