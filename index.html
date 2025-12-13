@@ -7,58 +7,71 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background canvas -->
-  <canvas id="bg-canvas"></canvas>
-
   <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="profile-container">
-      <img src="https://avatars.githubusercontent.com/u/249440397?v=4" alt="Profile" class="profile-pic">
-      <h1>Just a Random Dev</h1>
-      <p class="typing">Python, JS, C++, C#</p>
-    </div>
-    <div class="about-sidebar">
+    <img src="https://avatars.githubusercontent.com/u/249440397?v=4" alt="Profile" class="profile-pic">
+    <h1>Just a Random Dev</h1>
+    <p>Python, JS, C++, C#</p>
+    <section class="about">
       <h2>About Me</h2>
-      <p class="typing">Just a casual dev messing around with code, bots, games, and random projects. bla bla idk 🤷‍♂️</p>
-    </div>
+      <p>Just a casual dev messing around with code, bots, games, and random projects. bla bla idk 🤷‍♂️</p>
+    </section>
   </aside>
 
   <!-- Main content -->
   <main class="content">
-    <section class="pricing">
-      <h2>Services & Prices</h2>
-      <div class="pricing-cards">
-        <div class="pricing-card">
-          <span class="service">Discord Bot</span>
-          <span class="price">$5</span>
-          <button class="buy-btn">Buy Now</button>
-        </div>
-        <div class="pricing-card">
-          <span class="service">Game Script</span>
-          <span class="price">$10</span>
-          <button class="buy-btn">Buy Now</button>
-        </div>
-        <div class="pricing-card">
-          <span class="service">Random Script</span>
-          <span class="price">$3</span>
-          <button class="buy-btn">Buy Now</button>
-        </div>
-        <div class="pricing-card">
-          <span class="service">Custom Service</span>
-          <span class="price">$15</span>
-          <button class="buy-btn">Buy Now</button>
-        </div>
+    <!-- Services Section -->
+    <section class="services">
+      <h2>💼 Services & Pricing</h2>
+      <div class="service-card">
+        <h3>Discord Bot</h3>
+        <p>JavaScript / Python / C++</p>
+        <p class="price">$12.99</p>
+        <button>Buy Now</button>
+      </div>
+      <div class="service-card">
+        <h3>JavaScript</h3>
+        <p>JS</p>
+        <p class="price">$15</p>
+        <button>Buy Now</button>
+      </div>
+      <div class="service-card">
+        <h3>Random Script</h3>
+        <p>Python / C# / C++</p>
+        <p class="price">$11</p>
+        <button>Buy Now</button>
+      </div>
+      <div class="service-card">
+        <h3>Hire Me (Full-Time)</h3>
+        <p>Full-Time Service</p>
+        <p class="price">$70</p>
+        <button>Hire</button>
+      </div>
+      <div class="service-card">
+        <h3>Hire Me (Part-Time)</h3>
+        <p>Part-Time Service</p>
+        <p class="price">$40</p>
+        <button>Hire</button>
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact">
-      <h2>Contact</h2>
-      <p>Reach me on Discord: <strong>connektion</strong></p>
+      <h2>📬 Contact Me</h2>
+      <div class="contact-card">
+        <p>Reach me on Discord:</p>
+        <p><strong>@connektion</strong></p>
+        <p>Or send an email:</p>
+        <p><strong>youremail@example.com</strong></p>
+      </div>
     </section>
   </main>
 
-  <!-- Custom cursor -->
+  <!-- Cursor effect -->
   <div class="cursor"></div>
+
+  <!-- Particle background -->
+  <canvas id="particles"></canvas>
 
   <script src="script.js"></script>
 </body>
