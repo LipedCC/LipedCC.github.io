@@ -20,9 +20,9 @@ body {
 }
 
 .sidebar {
-  width: 300px; /* wider */
-  min-height: 100vh; /* full height */
-  padding: 40px 30px; /* more padding */
+  width: 300px;
+  min-height: 100vh;
+  padding: 40px 30px;
   background: linear-gradient(270deg, #5c0000, #aa0000);
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ body {
 }
 
 .profile-pic {
-  width: 140px; /* slightly bigger */
+  width: 140px;
   height: 140px;
   border-radius: 50%;
 }
@@ -97,13 +97,12 @@ body {
 }
 
 .service-card {
-  width: 95%; /* wider now */
-  max-width: 900px; /* max width */
+  width: 90%;
+  max-width: 700px;
   background: rgba(255,0,0,0.15);
   padding: 35px;
   border-radius: 25px;
   transition: 0.3s;
-  overflow: hidden;
 }
 
 .service-card:hover {
@@ -130,7 +129,6 @@ body {
   color: #ff4d4d;
 }
 
-/* PayPal inputs */
 .contact-input {
   width: 100%;
   padding: 12px;
