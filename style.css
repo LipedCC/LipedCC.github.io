@@ -20,9 +20,13 @@ body {
 }
 
 .sidebar {
-  width: 280px;
-  padding: 30px;
+  width: 300px; /* wider */
+  min-height: 100vh; /* full height */
+  padding: 40px 30px; /* more padding */
   background: linear-gradient(270deg, #5c0000, #aa0000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pfp-container {
@@ -38,20 +42,21 @@ body {
 }
 
 .profile-pic {
-  width: 130px;
-  height: 130px;
+  width: 140px; /* slightly bigger */
+  height: 140px;
   border-radius: 50%;
 }
 
 .about, .contact {
-  margin-top: 20px;
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
 }
 
 .contact-card {
-  background: rgba(0,0,0,0.5);
-  padding: 15px;
+  background: rgba(0,0,0,0.55);
+  padding: 20px;
   border-radius: 15px;
-  text-align: center;
 }
 
 .discord-btn {
@@ -79,7 +84,7 @@ body {
 
 .content {
   flex: 1;
-  padding: 40px;
+  padding: 50px;
   overflow-y: auto;
 }
 
@@ -88,13 +93,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
 
 .service-card {
-  width: 90%; /* responsive width */
+  width: 95%; /* wider now */
+  max-width: 900px; /* max width */
   background: rgba(255,0,0,0.15);
-  padding: 30px;
+  padding: 35px;
   border-radius: 25px;
   transition: 0.3s;
   overflow: hidden;
@@ -106,16 +112,19 @@ body {
 }
 
 .service-card h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #ff0000, #ff4d4d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .service-card p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-top: 10px;
 }
 
 .price {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin-top: 15px;
   color: #ff4d4d;
