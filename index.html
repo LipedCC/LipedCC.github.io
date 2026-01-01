@@ -16,7 +16,6 @@
       overflow-x:hidden;
     }
 
-    /* NAVBAR */
     nav {
       position:fixed;
       top:0; width:100%;
@@ -64,7 +63,6 @@
 
     nav a:hover::after { width:100%; }
 
-    /* HERO */
     .hero {
       min-height:100vh;
       display:flex;
@@ -106,7 +104,6 @@
 
     .hero button:hover { transform:scale(1.12); box-shadow:0 0 60px rgba(124,58,237,.9); }
 
-    /* GRID */
     section { padding:100px 40px; }
 
     .grid {
@@ -124,10 +121,12 @@
       border:1px solid rgba(168,85,247,.25);
       backdrop-filter:blur(18px);
       transition:.4s;
-      position:relative;
     }
 
-    .card:hover { transform:translateY(-14px) scale(1.04); box-shadow:0 40px 80px rgba(124,58,237,.45); }
+    .card:hover {
+      transform:translateY(-14px) scale(1.04);
+      box-shadow:0 40px 80px rgba(124,58,237,.45);
+    }
 
     .card h3 { font-size:1.7rem; margin-bottom:8px; }
 
@@ -160,7 +159,6 @@
       box-shadow:0 0 35px rgba(124,58,237,.9);
     }
 
-    /* MODAL */
     .modal {
       display:none;
       position:fixed;
@@ -205,12 +203,28 @@
       transition:.3s;
     }
 
-    .confirm:hover { transform:scale(1.1); box-shadow:0 0 30px rgba(124,58,237,.9); }
+    .confirm:hover {
+      transform:scale(1.1);
+      box-shadow:0 0 30px rgba(124,58,237,.9);
+    }
 
-    .cancel { margin-top:16px; font-size:.85rem; color:#9e95d1; cursor:pointer; transition:.2s; }
+    .cancel {
+      margin-top:16px;
+      font-size:.85rem;
+      color:#9e95d1;
+      cursor:pointer;
+      transition:.2s;
+    }
+
     .cancel:hover { color:white; }
 
-    footer { padding:60px 20px; text-align:center; font-size:.85rem; color:#9e95d1; border-top:1px solid rgba(168,85,247,.15); }
+    footer {
+      padding:60px 20px;
+      text-align:center;
+      font-size:.85rem;
+      color:#9e95d1;
+      border-top:1px solid rgba(168,85,247,.15);
+    }
   </style>
 </head>
 <body>
@@ -227,7 +241,9 @@
   <div>
     <h2>Liped Clients</h2>
     <p>Ultra-clean Minecraft clients. Open-source. Performance-focused. Purple aesthetic.</p>
-    <button onclick="document.getElementById('clients').scrollIntoView({behavior:'smooth'})">Explore Clients</button>
+    <button onclick="document.getElementById('clients').scrollIntoView({behavior:'smooth'})">
+      Explore Clients
+    </button>
   </div>
 </div>
 
@@ -238,14 +254,23 @@
       <h3>Volt Client</h3>
       <span class="badge">1.21 / 1.21.1 • Open Source</span>
       <p>Modern performance client with clean UI, animations, and utility modules. Fully open-source and actively maintained.</p>
-      <button class="download-btn" onclick="openModal('Volt Client','downloads/volt-client.jar')">Download</button>
+      <button class="download-btn"
+        onclick="openModal('Volt Client','downloads/volt-client.jar')">
+        Download
+      </button>
     </div>
 
     <div class="card">
-      <h3>DoomsDay</h3>
-      <span class="badge">PvP Client</span>
-      <p>A dark PvP-focused client built for intense combat, fast clicks, and smooth visuals.</p>
-      <button class="download-btn" onclick="soon()">Download</button>
+      <h3>DoomsDay Injectable</h3>
+      <span class="badge">PvP Client • Injectable</span>
+      <p>
+        Injectable PvP-focused client built for intense combat, fast clicks,
+        and smooth visuals. Designed to inject cleanly with strong performance.
+      </p>
+      <button class="download-btn"
+        onclick="openModal('DoomsDay Injectable','downloads/doomsday-injectable.jar')">
+        Download
+      </button>
     </div>
 
     <div class="card">
@@ -268,7 +293,7 @@
 <div id="modal" class="modal">
   <div class="modal-box">
     <h3 id="modalTitle">Download</h3>
-    <p>You are about to download a hacked client, Are you sure?</p>
+    <p>You are about to download a hacked client. Are you sure?</p>
     <a id="realDownload" download class="confirm">Confirm Download</a>
     <div class="cancel" onclick="closeModal()">Cancel</div>
   </div>
@@ -278,32 +303,18 @@
 
 <script>
   function openModal(name,file){
-    document.getElementById('modalTitle').innerText=name;
-    document.getElementById('realDownload').href=file;
-    document.getElementById('modal').style.display='flex';
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('realDownload').href = file;
+    document.getElementById('modal').style.display = 'flex';
   }
-  function closeModal(){ document.getElementById('modal').style.display='none'; }
-  function soon(){ alert('Download coming soon 👀'); }
-</script>
 
-
-<!-- CURSOR GLOW -->
-<div id="cursor"></div>
-
-<script>
-  function openModal(name,file){
-    document.getElementById('modalTitle').innerText=name;
-    document.getElementById('realDownload').href=file;
-    document.getElementById('modal').style.display='flex';
+  function closeModal(){
+    document.getElementById('modal').style.display = 'none';
   }
-  function closeModal(){ document.getElementById('modal').style.display='none'; }
-  function soon(){ alert('Download coming soon 👀'); }
 
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
+  function soon(){
+    alert('Download coming soon 👀');
+  }
 </script>
 
 </body>
