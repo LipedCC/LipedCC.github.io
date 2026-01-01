@@ -16,22 +16,15 @@ body{
   overflow-x:hidden;
 }
 
+/* NAV */
 nav{
   position:fixed;top:0;width:100%;
   padding:18px 40px;
   display:flex;justify-content:space-between;align-items:center;
   backdrop-filter:blur(16px);
   background:linear-gradient(120deg,rgba(124,58,237,.25),rgba(79,70,229,.15),rgba(124,58,237,.25));
-  background-size:300% 300%;
-  animation:navGradient 8s ease infinite;
   border-bottom:1px solid rgba(168,85,247,.25);
   z-index:100;
-}
-
-@keyframes navGradient{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
 }
 
 nav h1{
@@ -41,8 +34,12 @@ nav h1{
   -webkit-text-fill-color:transparent;
 }
 
-nav a{color:#cfc6ff;text-decoration:none;margin-left:26px}
+nav a{
+  color:#cfc6ff;text-decoration:none;margin-left:26px;
+  cursor:pointer;
+}
 
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;align-items:center;justify-content:center;
@@ -55,9 +52,21 @@ nav a{color:#cfc6ff;text-decoration:none;margin-left:26px}
   background:linear-gradient(90deg,#c084fc,#818cf8);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:16px;
 }
 
+.hero button{
+  margin-top:32px;
+  padding:16px 34px;
+  border-radius:18px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(90deg,#7c3aed,#4f46e5);
+  transition:.3s;
+}
+
+/* SECTION */
 section{padding:80px 40px}
 
 .search-box{
@@ -72,7 +81,6 @@ section{padding:80px 40px}
   border:1px solid rgba(168,85,247,.35);
   background:rgba(18,10,34,.85);
   color:white;
-  font-size:1rem;
   outline:none;
 }
 
@@ -84,18 +92,24 @@ section{padding:80px 40px}
   gap:34px;
 }
 
+/* CARD */
 .card{
   background:rgba(18,10,34,.85);
   border-radius:22px;
   padding:30px;
   border:1px solid rgba(168,85,247,.25);
   backdrop-filter:blur(18px);
-  transition:.4s;
+  transition:transform .45s ease, opacity .45s ease;
 }
 
-.card:hover{
-  transform:translateY(-14px) scale(1.04);
-  box-shadow:0 40px 80px rgba(124,58,237,.45);
+.card.hidden{
+  opacity:0;
+  transform:translateX(40px);
+  pointer-events:none;
+}
+
+.card.move{
+  transform:translateX(-40px);
 }
 
 .card h3{font-size:1.7rem;margin-bottom:8px}
@@ -108,19 +122,14 @@ section{padding:80px 40px}
 .card p{color:#d6ceff;font-size:.95rem;margin-bottom:22px}
 
 .download-btn{
-  padding:14px 28px;border-radius:16px;
-  background:linear-gradient(120deg,#7c3aed,#4f46e5,#7c3aed);
-  background-size:200% 200%;
-  color:white;border:none;font-weight:700;
-  cursor:pointer;transition:.35s;
+  padding:14px 28px;
+  border-radius:16px;
+  background:linear-gradient(120deg,#7c3aed,#4f46e5);
+  color:white;border:none;
+  font-weight:700;cursor:pointer;
 }
 
-.download-btn:hover{
-  background-position:100% 0;
-  transform:scale(1.12);
-  box-shadow:0 0 35px rgba(124,58,237,.9);
-}
-
+/* MODAL */
 .modal{
   display:none;position:fixed;inset:0;
   background:rgba(0,0,0,.65);
@@ -134,7 +143,6 @@ section{padding:80px 40px}
   padding:34px;border-radius:22px;
   text-align:center;
   max-width:420px;
-  border:1px solid rgba(168,85,247,.3);
 }
 
 .confirm{
@@ -160,7 +168,7 @@ footer{
 <nav>
   <h1>Liped</h1>
   <div>
-    <a href="#clients">Clients</a>
+    <a onclick="scrollToClients()">Clients</a>
     <a href="https://github.com/LipedXZ" target="_blank">GitHub</a>
   </div>
 </nav>
@@ -168,45 +176,46 @@ footer{
 <div class="hero">
   <div>
     <h2>Liped Clients</h2>
-    <p>Ultra-clean Minecraft clients. Open-source. Performance-focused. Purple aesthetic.</p>
+    <p>Ultra-clean Minecraft clients.</p>
+    <button onclick="scrollToClients()">Explore Clients</button>
   </div>
 </div>
 
 <section id="clients">
 
   <div class="search-box">
-    <input type="text" id="search" placeholder="Search clients..." oninput="searchClients()">
+    <input id="search" placeholder="Search clients..." oninput="searchClients()">
   </div>
 
   <div class="grid" id="clientGrid">
 
-    <div class="card" data-name="volt client">
+    <div class="card" data-name="volt client" data-order="1">
       <h3>Volt Client</h3>
-      <span class="badge">1.21 / 1.21.1 • Open Source</span>
-      <p>Modern performance client with clean UI and utility modules.</p>
+      <span class="badge">Open Source</span>
+      <p>Modern performance client.</p>
       <button class="download-btn"
         onclick="openModal('Volt Client','downloads/volt-client.jar')">Download</button>
     </div>
 
-    <div class="card" data-name="doomsday injectable">
+    <div class="card" data-name="doomsday injectable" data-order="2">
       <h3>DoomsDay Injectable</h3>
-      <span class="badge">PvP Client • Injectable</span>
-      <p>Injectable PvP-focused client built for intense combat.</p>
+      <span class="badge">PvP • Injectable</span>
+      <p>Injectable PvP client.</p>
       <button class="download-btn"
         onclick="openModal('DoomsDay Injectable','downloads/doomsday-injectable.jar')">Download</button>
     </div>
 
-    <div class="card" data-name="violet+">
+    <div class="card" data-name="violet+" data-order="3">
       <h3>Violet+</h3>
       <span class="badge">Utility</span>
-      <p>Lightweight quality-of-life client.</p>
+      <p>Quality-of-life client.</p>
       <button class="download-btn" onclick="alert('Coming soon 👀')">Download</button>
     </div>
 
-    <div class="card" data-name="nightfall">
+    <div class="card" data-name="nightfall" data-order="4">
       <h3>NightFall</h3>
       <span class="badge">Experimental</span>
-      <p>Experimental visuals and animation systems.</p>
+      <p>Experimental visuals.</p>
       <button class="download-btn" onclick="alert('Coming soon 👀')">Download</button>
     </div>
 
@@ -216,7 +225,7 @@ footer{
 <div id="modal" class="modal">
   <div class="modal-box">
     <h3 id="modalTitle"></h3>
-    <p>You are about to download a Hacked Client. Are you sure?</p>
+    <p>You are about to download a Minecraft client.</p>
     <a id="realDownload" download class="confirm">Confirm Download</a>
     <div class="cancel" onclick="closeModal()">Cancel</div>
   </div>
@@ -225,6 +234,10 @@ footer{
 <footer>© 2026 Liped — Hosted on GitHub Pages</footer>
 
 <script>
+function scrollToClients(){
+  document.getElementById('clients').scrollIntoView({behavior:'smooth'});
+}
+
 function openModal(name,file){
   modalTitle.innerText=name;
   realDownload.href=file;
@@ -233,19 +246,34 @@ function openModal(name,file){
 function closeModal(){modal.style.display='none';}
 
 function searchClients(){
-  const q=document.getElementById('search').value.toLowerCase();
-  const grid=document.getElementById('clientGrid');
-  const cards=[...grid.children];
+  const q = search.value.toLowerCase();
+  const grid = clientGrid;
+  const cards = [...grid.children];
+
+  cards.forEach(c=>{
+    c.classList.remove('hidden','move');
+  });
+
+  if(q === ''){
+    cards
+      .sort((a,b)=>a.dataset.order-b.dataset.order)
+      .forEach(c=>grid.appendChild(c));
+    return;
+  }
 
   cards.sort((a,b)=>{
-    const aMatch=a.dataset.name.includes(q);
-    const bMatch=b.dataset.name.includes(q);
-    return bMatch-aMatch;
+    const am = a.dataset.name.includes(q);
+    const bm = b.dataset.name.includes(q);
+    return bm - am;
   });
 
   cards.forEach(c=>{
-    c.style.display = q==='' || c.dataset.name.includes(q) ? 'block' : 'none';
-    grid.appendChild(c);
+    if(!c.dataset.name.includes(q)){
+      c.classList.add('hidden');
+    }else{
+      c.classList.add('move');
+      grid.appendChild(c);
+    }
   });
 }
 </script>
